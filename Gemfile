@@ -5,6 +5,7 @@ gem 'rails', '3.2.11'
 gem 'pg'
 
 group :development, :test do
+  gem 'jasmine'
   gem 'rspec-rails'
 end
 
