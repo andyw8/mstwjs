@@ -6,4 +6,8 @@ development:
   host: localhost
 
 test: &test
+  adapter: postgresql
+  encoding: unicode
   database: mstwjs_test
+  pool: 5
+  host: localhost
