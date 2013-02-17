@@ -5,8 +5,7 @@ development:
   pool: 5
   host: localhost
 
-test: &test
-  username: postgres
+test:
   adapter: postgresql
   encoding: unicode
   database: mstwjs_test

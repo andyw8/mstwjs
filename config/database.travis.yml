@@ -1,0 +1,7 @@
+test:
+  username: postgres
+  adapter: postgresql
+  encoding: unicode
+  database: mstwjs_test
+  pool: 5
+  host: localhost
