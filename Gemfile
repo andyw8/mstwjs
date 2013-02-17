@@ -8,6 +8,7 @@ group :development, :test do
   gem 'jasmine'
   gem 'jasminerice'
   gem 'rspec-rails'
+  gem 'guard-jasmine'
 end
 
 group :assets do
