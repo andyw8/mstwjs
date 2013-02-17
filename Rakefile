@@ -5,3 +5,6 @@
 require File.expand_path('../config/application', __FILE__)
 
 Mstwjs::Application.load_tasks
+
+require 'guard/jasmine/task'
+Guard::JasmineTask.new
