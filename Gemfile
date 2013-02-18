@@ -4,6 +4,10 @@ gem 'rails', '3.2.11'
 
 gem 'pg'
 
+group :development do
+  gem 'rb-fsevent', '~> 0.9.1'
+end
+
 group :development, :test do
   gem 'jasmine'
   gem 'jasminerice'
