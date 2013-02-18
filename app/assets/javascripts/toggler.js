@@ -1,14 +1,18 @@
-var toggler = {
-  detailSelector: ".detail",
-  linkSelector: ".detail_toggle",
-  hiddenClass: "hidden",
-  hideText: "Hide Details",
-  showText: "Show Details",
-  container: ".topics_container",
+var Toggler = function() {
+  this.detailSelector = ".detail";
+  this.linkSelector = ".detail_toggle";
+  this.hiddenClass = "hidden";
+  this.hideText = "Hide Details";
+  this.showText = "Show Details";
+  this.container = ".topics_container";
+};
 
+Toggler.prototype = {
   init: function() {
+    // inside the jQuery event handler, this refers to the event, so we must
+    // re-assign the origin 'this' so we can call it from within the event handler
     var self = this;
-    $(this.container).on('click', toggler.linkSelector, function(event) {
+    $(this.container).on('click', this.linkSelector, function(event) {
       self.toggleOnClick(event);
     });
   },
@@ -34,5 +38,6 @@ var toggler = {
 };
 
 $(function() {
+  var toggler = new Toggler();
   toggler.init();
 });

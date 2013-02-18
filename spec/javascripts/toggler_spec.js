@@ -2,6 +2,7 @@ describe("Trip detail toggler", function() {
   describe("clicking a show link", function() {
     beforeEach(function(){
       loadFixtures("topic.html");
+      var toggler = new Toggler();
       toggler.init();
     });
 
