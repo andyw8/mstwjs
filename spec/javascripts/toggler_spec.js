@@ -2,7 +2,7 @@ describe("Trip detail toggler", function() {
   describe("clicking a show link", function() {
     beforeEach(function(){
       loadFixtures("topic.html");
-      init();
+      toggler.init();
     });
 
     it("hides the detail by default", function() {
