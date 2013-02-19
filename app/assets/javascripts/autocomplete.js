@@ -8,8 +8,6 @@ var initializeAutocompleteSelector = function(options) {
   $parent.append(input);
 };
 
-$(function(){
-  // as a quick hacky way of getting the tests running, I'm trying to make the above method
-  // available globally so that the spec can see it. but why is this failing?
-  window.initializeAutocompleteSelector = initializeAutocompleteSelector;
-});
+// as a quick hacky way of getting the tests running, I'm trying to make the above method
+// available globally so that the spec can see it. but why is this failing?
+window.initializeAutocompleteSelector = initializeAutocompleteSelector;
