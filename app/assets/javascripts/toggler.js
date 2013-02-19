@@ -1,5 +1,4 @@
 var Toggler = (function() {
-  var totalTogglers = 0;
   var Toggler = function() {
     this.detailSelector = ".detail";
     this.linkSelector = ".detail_toggle";
