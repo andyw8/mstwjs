@@ -1,0 +1,35 @@
+Toggler = ->
+  this.detailSelector = ".detail"
+  this.linkSelector = ".detail_toggle"
+  this.hiddenClass = "hidden"
+  this.hideText = "Hide Details"
+  this.showText = "Show Details"
+  this.container = ".topics_container"
+
+Toggler.prototype =
+  init: ->
+    # inside the jQuery event handler, this refers to the event, so we must
+    # re-assign the origin 'this' so we can call it from within the event handler
+    self = this
+    $(this.container).on('click', this.linkSelector, ->
+      self.toggleOnClick(event))
+
+  toggleOnClick: (event) ->
+    this.$link = $(event.target)
+    if this.isDetailHidden()
+      this.$link.text( this.hideText )
+    else
+      this.$link.text( this.showText )
+    this.detailElement().toggleClass(this.hiddenClass)
+    event.preventDefault()
+
+  detailElement: ->
+    this.$link.parent().find(this.detailSelector)
+
+  isDetailHidden: ->
+    this.detailElement().hasClass(this.hiddenClass)
+
+$(->
+  toggler = new Toggler()
+  toggler.init()
+)
