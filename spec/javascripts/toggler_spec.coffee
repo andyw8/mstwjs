@@ -2,7 +2,6 @@ describe "Trip detail toggler", ->
   beforeEach ->
     loadFixtures "topic.html"
     toggler = new Toggler
-    #toggler.init()
 
   it "hides the detail by default", ->
     expect($('.detail')).toHaveClass "hidden"
