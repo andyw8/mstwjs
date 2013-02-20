@@ -8,9 +8,8 @@ class Toggler
 
   constructor: ->
     # note the use of the 'fat arrow' so that 'this' (@) gets set correctly
-    $(@container).on('click', @linkSelector, (event) =>
+    $(@container).on 'click', @linkSelector, (event) =>
       @toggleOnClick event
-    )
 
   toggleOnClick: (event) ->
     @$link = $(event.target)
@@ -25,10 +24,8 @@ class Toggler
   isDetailHidden: ->
     @detailElement().hasClass @hiddenClass
 
-$(->
+$ ->
   toggler = new Toggler
-
   # we need to make Toggler global for it to be accessible from the spec
   # there are various approaches but this will work for now
   window.Toggler = Toggler
-)
