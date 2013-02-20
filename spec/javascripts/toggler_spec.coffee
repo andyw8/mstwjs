@@ -16,6 +16,6 @@ describe "Trip detail toggler", ->
     it "changes the link description to Hide", ->
       expect($('.detail_toggle')).toHaveText "Hide Details"
 
-    it 'Changes the link action back to Show',->
+    it 'Changes the link action back to Show', ->
       $(".detail_toggle").click()
       expect($('.detail_toggle')).toHaveText "Show Details"

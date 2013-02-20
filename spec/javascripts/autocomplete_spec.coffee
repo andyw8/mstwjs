@@ -12,7 +12,6 @@ describe "Autocomplete widget", ->
       initialValue: "1,3"
       dataUniverse: autocompleteData
 
-
   describe "sets up expected hidden element", ->
     beforeEach ->
       @hiddenField = $("#autodiv #user_activity_ids")
