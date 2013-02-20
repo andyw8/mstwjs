@@ -1,4 +1,4 @@
-var initializeAutocompleteSelector = function(options) {
+var initializeAutoCompleteSelector = function (options) {
   var $parent = $(options.parentSelector);
   var field = options.field;
   var id = field.replace("][", "_").replace("[", "").replace("]", "");
