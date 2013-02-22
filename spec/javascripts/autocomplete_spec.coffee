@@ -24,3 +24,7 @@ describe "Autocomplete widget", ->
 
     it "gives the hidden field the correct value", ->
       expect(@hiddenField).toHaveAttr "value", "1,3"
+
+    it "gives the input element an add button", ->
+      addButton = $('#autodiv a#user_activity_ids_add_button')
+      expect(addButton).toHaveClass('selector_add_button')

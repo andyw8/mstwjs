@@ -13,3 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+var activityData = {1: "Hiking", 2: "Changing History", 3: "Baseball", 4: "Programming"};
+$(function() { initializeAutoCompleteSelector({
+      parentSelector: "#autodiv",
+      field: "[user][activity_ids]",
+      dataUniverse: activityData,
+      initialValue: ""
+  });
+});
