@@ -19,5 +19,5 @@ $ ->
   new AutocompleteSelector
     parentSelector: "#autodiv",
     field: "[user][activity_ids]",
-    dataUniverse: activityData,
+    universe: activityData,
     initialValue: ""
