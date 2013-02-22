@@ -6,7 +6,7 @@ describe "Autocomplete widget", ->
       2: "Beta"
       3: "Gamma"
       4: "Delta"
-    initializeAutoCompleteSelector
+    initializeAutocompleteSelector
       parentSelector: "#autodiv"
       field: "[user][activity_ids]"
       initialValue: "1,3"

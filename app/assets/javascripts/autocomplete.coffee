@@ -21,8 +21,8 @@ initializeHiddenField = (options) ->
     .val(options.initialValue)
   $parent.append input
 
-initializeAutoCompleteSelector = (options) ->
+initializeAutocompleteSelector = (options) ->
   initializeHiddenField options
   initializeTextInput options
 
-window.initializeAutoCompleteSelector = initializeAutoCompleteSelector
+window.initializeAutocompleteSelector = initializeAutocompleteSelector
