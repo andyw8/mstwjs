@@ -1,16 +1,15 @@
 describe "Autocomplete widget", ->
   beforeEach ->
     affix "form div#autodiv"
-    autocompleteData =
-      1: "Alpha"
-      2: "Beta"
-      3: "Gamma"
-      4: "Delta"
-    initializeAutocompleteSelector
+    autocompleteSelector = new AutocompleteSelector
       parentSelector: "#autodiv"
       field: "[user][activity_ids]"
+      universe:
+        1: "Alpha"
+        2: "Beta"
+        3: "Gamma"
+        4: "Delta"
       initialValue: "1,3"
-      dataUniverse: autocompleteData
 
   describe "sets up expected hidden element", ->
     beforeEach ->
