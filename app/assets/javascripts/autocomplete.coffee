@@ -9,7 +9,9 @@ class AutocompleteSelector
       .append(@textInput())
       .append(@addButton())
       .append(@valueList())
-    $("#" + @determineId("add_button")).click(this.addEventHandler)
+    $(".delete-button").click @deleteEventHandler
+    $(@domParent).on "click", "#" + @determineId("add_button"), @addEventHandler
+    $(@domParent).on "click", ".delete-button", @deleteEventHandler
 
   determineId: (suffix) ->
     id = @field
@@ -24,11 +26,6 @@ class AutocompleteSelector
       .attr("id", @determineId())
       .attr("name", @field)
       .val(@initialValue)
-
-  textInput: ->
-    $("<input type='text'/>")
-      .attr("id", @determineId("autocomplete"))
-      .attr("name", @field + "[autocomplete]")
 
   addButton: ->
     $("<a href='#'>")
@@ -72,6 +69,30 @@ class AutocompleteSelector
     $autocomplete.val ""
     $autocomplete.focus()
     event.preventDefault()
+
+  deleteEventHandler: (event) =>
+    idToDelete = $(event.target).attr('id').split("_").pop()
+    hiddenField = $('#' + @determineId())
+    existingIds = hiddenField.val().split(",")
+    indexToRemove = existingIds.indexOf idToDelete
+    if indexToRemove != -1
+      existingIds.splice(indexToRemove, 1)
+      hiddenField.val(existingIds.join(","))
+    $(event.target).closest("li").remove()
+    event.preventDefault()
+
+  universeValues: ->
+    result = []
+    result.push(property) for id, property of @universe
+    result
+
+  textInput: ->
+    input = $("<input type='text'/>")
+      .attr("id", @determineId("autocomplete"))
+      .attr("name", @field + "[autocomplete]")
+    # we aren't really testing this :(
+    input.autocomplete({source: @universeValues()})
+    input
 
 $ ->
   window.AutocompleteSelector = AutocompleteSelector
