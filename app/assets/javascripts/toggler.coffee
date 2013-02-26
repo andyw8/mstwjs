@@ -2,21 +2,25 @@ class Toggler
   detailSelector: ".detail"
   linkSelector: ".detail_toggle"
   hiddenClass: "hidden"
+  container: ".topics_container"
   hideText: "Hide Details"
   showText: "Show Details"
-  container: ".topics_container"
 
   constructor: ->
     # note the use of the 'fat arrow' so that 'this' (@) gets set correctly
     $(@container).on 'click', @linkSelector, (event) =>
       @toggleOnClick event
+    $(@linkSelector).on('ajax:success', (event, data, status, xhr) =>
+      @detailElement().html data.description
+    )
+    $(@linkSelector).on('ajax:error', (event, xhr, status, error) ->
+      alert error
+    )
 
   toggleOnClick: (event) ->
     @$link = $(event.target)
-    # this seems hard to read to me, but CoffeeScript has no ternary operator.
     @$link.text if @isDetailHidden() then @hideText else @showText
-    @detailElement().toggleClass @hiddenClass
-    event.preventDefault()
+    @detailElement().toggleClass this.hiddenClass
 
   detailElement: ->
     @$link.parent().find @detailSelector
